@@ -7,11 +7,14 @@ function subtract(a,b){
 }
 
 function multiply(a,b){
-    return a * b;
+    return Math.round(a * b * 10000) / 10000;
 }
 
 function divide(a,b){
-    return a / b;
+    if(b == 0){
+        return "Error";
+    }
+    return Math.round(a / b * 10000) / 10000;
 }
 
 let num1 = null;
@@ -105,5 +108,11 @@ operators.forEach((op) => op.addEventListener('click', function(){
         operator = op.textContent;
         op.classList.add("pressed");
         activeOp = op;
+    }
+    if(operator == '÷'){
+        operator = '/';
+    }
+    if(operator == 'x'){
+        operator = '*';
     }
 }))
